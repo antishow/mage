@@ -1,0 +1,60 @@
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: black;
+}
+
+.controls {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+}
+
+canvas {
+	position: relative;
+	z-index: 1;
+	width: 800px !important;
+	height: 600px !important;
+}
+
+.message {
+	position: fixed;
+	z-index: 2;
+	color: #fff;
+	font-size: 24px;
+	pointer-events: none;
+	transform-origin: 50% 100%;
+	font-family: serif;
+	max-width: 320px;
+	animation-name: popIn;
+	animation-duration: 0.17s;
+	animation-timing-function: ease-out;
+	transform: scale(1) translate(-50%, -100%);
+	text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000,
+		2px 2px 1px #000;
+}
+
+.inventory-select {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+
+@keyframes popIn {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -100%) scale(0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translate(-50%, -100%) scale(1);
+	}
+}
