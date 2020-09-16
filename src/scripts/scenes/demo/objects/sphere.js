@@ -20,10 +20,7 @@ function Sphere() {
 	return {
 		components: [
 			Clickable(onClick),
-		],
-		options: {
-			castShadow: true
-		}
+		]
 	}
 }
 

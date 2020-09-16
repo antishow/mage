@@ -2,7 +2,7 @@ import { Clickable } from 'components/clickable';
 import { Animator } from 'components/animator';
 
 function onClick(e) {
-	let animator = e.target.components.filter(c => c.name == 'Animator').pop();
+	const animator = e.target.components.find(c => c.name == 'Animator');
 	if (animator) {
 		animator.playClip('Flip');
 	}
@@ -13,10 +13,7 @@ function Doodad() {
 		components: [
 			Clickable(onClick),
 			Animator('Flip')
-		],
-		options: {
-			castShadow: true
-		}
+		]
 	}
 }
 

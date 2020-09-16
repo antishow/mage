@@ -26,10 +26,7 @@ function Cone() {
 	return {
 		components: [
 			Clickable(onClick),
-		],
-		options: {
-			castShadow: true
-		}
+		]
 	}
 }
 

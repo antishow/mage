@@ -5,6 +5,7 @@ import Doodad from './objects/doodad';
 import Player from './objects/player';
 import Sphere from './objects/sphere';
 import Cone from './objects/cone';
+import LeftDrawer from './objects/left-drawer';
 
 function applyGameState(state) {
 	let sceneState = state.scenes.demo;
@@ -29,51 +30,6 @@ export var Demo = {
 		'Cone': Cone(),
 		'Sphere': Sphere(),
 		'Doodad': Doodad(),
-		'Floor': {
-			options: {
-				receiveShadow: true,
-				castShadow: false
-			}
-		},
-		'North_Wall': {
-			options: {
-				receiveShadow: true,
-				castShadow: false
-			}
-		},
-		'East_Wall': {
-			options: {
-				receiveShadow: true,
-				castShadow: false
-			}
-		},
-		'West_Wall': {
-			options: {
-				receiveShadow: true,
-				castShadow: true
-			}
-		},
-		'South_Wall': {
-			options: {
-				receiveShadow: true,
-				castShadow: true
-			}
-		},
-		'Sun_Orientation': {
-			options: {
-				intensity: 3,
-				castShadow: true
-			}
-		},
-		'Spot_Orientation': {
-			options: {
-				castShadow: true
-			}
-		},
-		'Warm_Spot_Orientation': {
-			options: {
-				castShadow: true
-			}
-		}
+		'Drawer.L': LeftDrawer(),
 	}
 };
