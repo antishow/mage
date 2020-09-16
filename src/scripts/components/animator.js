@@ -3,7 +3,7 @@ import { AnimationMixer, LoopOnce } from 'three';
 
 export function Animator(...animations) {
 	return function(object) {
-		var self = object;
+		const self = object;
 		var mixer;
 		var actions;
 		var currentAction = false;
@@ -13,7 +13,7 @@ export function Animator(...animations) {
 			actions = animations.reduce((actions, name) => {
 				let animation = getAnimation(name);
 				let action = mixer.clipAction(animation);
-				action.setLoop(LoopOnce);
+				action.loop = LoopOnce;
 				action.clampWhenFinished = true;
 
 				actions[name] = action;
@@ -30,12 +30,14 @@ export function Animator(...animations) {
 		}
 
 		function onFinished(e) {
-			currentAction.stop();
+			currentAction.paused = true;
 			currentAction = false;
 		}
 
 		function playClip(clipName) {
-			let action = actions[clipName];
+			const action = actions[clipName];
+
+			action.reset();
 			action.play();
 			currentAction = action;
 		}
