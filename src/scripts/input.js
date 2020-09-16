@@ -5,6 +5,10 @@ const FORWARD = 'KeyW';
 const BACKWARD = 'KeyS';
 const LEFT = 'KeyA';
 const RIGHT = 'KeyD';
+const ALT_FORWARD = 'ArrowUp';
+const ALT_BACKWARD = 'ArrowDown';
+const ALT_LEFT = 'ArrowLeft';
+const ALT_RIGHT = 'ArrowRight';
 const TURN_LEFT = 'KeyQ';
 const TURN_RIGHT = 'KeyE';
 const CROUCH = 'ShiftLeft';
@@ -13,19 +17,19 @@ const FOCUS = 'KeyZ';
 export function getWASD() {
 	let ret = new Vector2();
 
-	if (Key.isDown(FORWARD)) {
+	if (Key.isDown(FORWARD) || Key.isDown(ALT_FORWARD)) {
 		ret.y += 1;
 	}
 
-	if (Key.isDown(LEFT)) {
+	if (Key.isDown(LEFT) || Key.isDown(ALT_LEFT)) {
 		ret.x -= 1;
 	}
 
-	if (Key.isDown(BACKWARD)) {
+	if (Key.isDown(BACKWARD) || Key.isDown(ALT_BACKWARD)) {
 		ret.y -= 1;
 	}
 
-	if (Key.isDown(RIGHT)) {
+	if (Key.isDown(RIGHT) || Key.isDown(ALT_RIGHT)) {
 		ret.x += 1;
 	}
 
