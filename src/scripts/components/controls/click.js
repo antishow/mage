@@ -22,6 +22,7 @@ export function Click() {
 			canvas.addEventListener('mousedown', onMouseDown);
 			canvas.addEventListener('mouseup', onMouseUp);
 			canvas.addEventListener('mousemove', onMouseMove);
+			canvas.addEventListener('dblclick', onDoubleClick);
 		}
 
 		function onMouseMove(e) {
@@ -43,6 +44,10 @@ export function Click() {
 			}
 		}
 
+		function onDoubleClick(e) {
+			console.log('Double Clicked!');
+		}
+
 		function onClick(e) {
 			let mx = e.clientX - e.target.offsetLeft;
 			let my = e.clientY - e.target.offsetTop;
@@ -51,7 +56,7 @@ export function Click() {
 			let y = - (my / e.target.offsetHeight) * 2 + 1;
 
 			raycaster.setFromCamera(new Vector2(x, y), camera);
-			var intersects = raycaster.intersectObjects(scene.children);
+			var intersects = raycaster.intersectObjects(scene.clickables);
 
 			if (intersects.length > 0) {
 				let clicked = intersects.shift();
