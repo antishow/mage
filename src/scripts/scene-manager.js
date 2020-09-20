@@ -54,6 +54,7 @@ function prepareScene(scene, data) {
 
 		if (n.isLight) {
 			n.castShadow = true;
+			n.shadow.bias = 0.001;
 		}
 
 		if (n.userData) {
