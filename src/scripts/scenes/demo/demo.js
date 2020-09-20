@@ -6,6 +6,7 @@ import Player from './objects/player';
 import Sphere from './objects/sphere';
 import Cone from './objects/cone';
 import LeftDrawer from './objects/left-drawer';
+import Lamp from './objects/lamp';
 
 function applyGameState(state) {
 	let sceneState = state.scenes.demo;
@@ -31,5 +32,6 @@ export var Demo = {
 		'Sphere': Sphere(),
 		'Doodad': Doodad(),
 		'Drawer.L': LeftDrawer(),
+		'Lamp': Lamp(),
 	}
 };
