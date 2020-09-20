@@ -46,7 +46,6 @@ function prepareCameras(newCameras) {
 function prepareScene(scene, data) {
 	let outline = Object.keys(data.outline);
 
-	scene.clickables = [];
 	scene.traverse(n => {
 		if (n.name.substring(0, 1) === '_') {
 			n.material.visible = false;
@@ -70,9 +69,6 @@ function prepareScene(scene, data) {
 
 			if (obj.components) {
 				n.components = obj.components.map(component => component(n));
-				if (n.components.find(C => C.name == 'Clickable')) {
-					scene.clickables.push(n);
-				}
 			}
 		}
 	});
