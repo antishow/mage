@@ -67,16 +67,10 @@ export function continueGame() {
 		savedState = JSON.parse(savedData);
 	}
 
-	console.log('CONTINUE GAME');
-	console.log(savedData);
-
 	setGameState(savedState);
 }
 
 function saveGame() {
-	console.log('SAVED GAME STATE');
-	console.log(gameState);
-
 	let json = JSON.stringify(gameState);
 	localStorage.setItem(SAVED_GAME_ID, json);
 }

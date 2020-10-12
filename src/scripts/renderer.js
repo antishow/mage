@@ -11,3 +11,15 @@ renderer.setSize(320, 240);
 renderer.gammaOutput = true;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
+
+export function rendererMatchElementSize() {
+	renderer.setSize(
+		renderer.domElement.clientWidth,
+		renderer.domElement.clientHeight
+	);
+}
+
+export function appendRenderDomElement(el) {
+	el.appendChild(renderer.domElement);
+	rendererMatchElementSize();
+}

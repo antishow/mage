@@ -1,15 +1,14 @@
-import { Vector2, AmbientLight } from 'three';
+import { AmbientLight } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { setCameras, setMainCamera } from './camera-manager';
 import { setAnimations } from './animation-manager';
-import { renderer } from './renderer';
+
+const loader = new GLTFLoader();
 
 export var activeScene;
 
 export function loadScene(sceneData) {
 	return new Promise(function(resolve, reject) {
-		let loader = new GLTFLoader();
-
 		loader.load(
 			sceneData.file,
 			function(gltf) {
@@ -28,17 +27,6 @@ export function loadScene(sceneData) {
 }
 
 function prepareCameras(newCameras) {
-	let size = new Vector2();
-	renderer.getSize(size);
-
-	let aspect = size.x / size.y;
-
-	for (var i in newCameras) {
-		let cam = newCameras[i];
-		cam.aspect = aspect;
-		cam.updateProjectionMatrix();
-	}
-
 	setMainCamera(newCameras[0]);
 	setCameras(newCameras);
 }
@@ -53,7 +41,7 @@ function prepareScene(scene, data) {
 
 		if (n.isLight) {
 			n.castShadow = true;
-			n.shadow.bias = 0.001;
+			n.shadow.bias = 0.0001;
 		}
 
 		if (n.userData) {
